@@ -46,3 +46,38 @@ Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
   [1m[35mSQL (0.6ms)[0m  DELETE FROM "students" WHERE "students"."id" = ?  [["id", 2]]
   [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
   [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+Started GET "/" for 108.49.130.63 at 2019-06-06 23:07:43 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb (3.2ms)
+Completed 200 OK in 17ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students/new" for 108.49.130.63 at 2019-06-06 23:08:06 +0000
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 396ms (Views: 383.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/students" for 108.49.130.63 at 2019-06-06 23:08:11 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QF8aT1yGwT0eP29vYvaH620H5/Qpux3FyKU7Kch6LfxE1SC1SeRSawNg1dnyv7ggBs74NzBpIF22wbDwa+gbgw==", "student"=>{"first_name"=>"fsdf", "last_name"=>"fsdfs"}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "students" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2019-06-06 23:08:11.696348"], ["updated_at", "2019-06-06 23:08:11.696348"]]
+  [1m[35m (34.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://142.93.11.41:33612/students/3
+Completed 302 Found in 38ms (ActiveRecord: 34.7ms)
+
+
+Started GET "/students/3" for 108.49.130.63 at 2019-06-06 23:08:11 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+
+
